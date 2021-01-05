@@ -31,10 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CpoDesign.BDD.API\CpoDesign.BDD.API.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Features\Configuration.feature.cs">
       <DependentUpon>Configuration.feature</DependentUpon>
     </Compile>

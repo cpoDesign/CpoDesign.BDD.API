@@ -20,7 +20,7 @@ namespace DemoWebAPI.Tests.Integration.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.5.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class HealthcheckFeature
+    public partial class ConfigurationFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -29,7 +29,7 @@ namespace DemoWebAPI.Tests.Integration.Features
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "Healthcheck.feature"
+#line 1 "Configuration.feature"
 #line hidden
         
         public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
@@ -48,8 +48,8 @@ namespace DemoWebAPI.Tests.Integration.Features
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Healthcheck", "\tIn order to ensure the endpoint is working\r\n\tAs a system verification\r\n\tI *want*" +
-                    " to be told if application is up", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Configuration", "\tIn order to ensure the endpoint is working\r\n\tAs application starts\r\n\tI *want* to" +
+                    " ensure that the default values are populated in confiugration", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,9 +64,9 @@ namespace DemoWebAPI.Tests.Integration.Features
         public virtual void TestInitialize()
         {
             if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Title != "Healthcheck")))
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "Configuration")))
             {
-                global::DemoWebAPI.Tests.Integration.Features.HealthcheckFeature.FeatureSetup(null);
+                global::DemoWebAPI.Tests.Integration.Features.ConfigurationFeature.FeatureSetup(null);
             }
         }
         
@@ -93,15 +93,15 @@ namespace DemoWebAPI.Tests.Integration.Features
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Healthcheck returns a healthy language")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Healthcheck")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("healthcheck")]
-        public virtual void HealthcheckReturnsAHealthyLanguage()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("The appsettings file contains correct configuration")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Configuration")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("configuration")]
+        public virtual void TheAppsettingsFileContainsCorrectConfiguration()
         {
             string[] tagsOfScenario = new string[] {
-                    "healthcheck"};
+                    "configuration"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Healthcheck returns a healthy language", null, tagsOfScenario, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The appsettings file contains correct configuration", null, tagsOfScenario, argumentsOfScenario);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -123,13 +123,16 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 8
- testRunner.Given("A call to the endpoint using template file \'healthcheck.postman.json\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("The application is using configuration key \'BaseUrl\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
- testRunner.When("make request using the template", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the application reads the configuration key", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.Then("result should contain the word \'Healthy\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the configuration value value should be \'https://localhost:44313/\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 11
+ testRunner.And("the configuration value should contain \'https\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
