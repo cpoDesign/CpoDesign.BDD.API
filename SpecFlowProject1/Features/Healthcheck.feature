@@ -4,8 +4,7 @@
 	I *want* to be told if application is up
 	
 @healthcheck
-Scenario: Healthcheck returns a value
+Scenario: Healthcheck returns a healthy language
 	Given A call to the endpoint using template file 'healthcheck.postman.json'
 	When make request using the template
-#	And getting authenticated as 'Jony English' from 'IdentityServer 4'
 	Then result should contain the word 'Healthy'

@@ -1,7 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using CpoDesign.BDD.API.CpoDesign;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
-using SpecFlowProject1.CpoDesign;
-using System;
 using TechTalk.SpecFlow;
 
 namespace SpecFlowProject1.Steps
@@ -117,18 +116,6 @@ namespace SpecFlowProject1.Steps
     }
     public class ConfigurationParser
     {
-        public static string GetUrlForendpoint(string endpointName)
-        {
-            switch (endpointName)
-            {
-                case "health check":
-                    return "healthcheck";
-                default:
-                    return string.Empty;
-            }
-
-        }
-
         internal static string GetFullUrlFromTemplate(string urlTemplate)
         {
             string baseUrlConfigurationName = GetTemplateName(urlTemplate);

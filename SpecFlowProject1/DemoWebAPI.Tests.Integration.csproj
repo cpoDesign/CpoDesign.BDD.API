@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Calculator - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\Healthcheck - Copy.feature.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,23 @@
     <Folder Include="Drivers\" />
     <Folder Include="Hooks\" />
     <Folder Include="Personas\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CpoDesign.BDD.API\CpoDesign.BDD.API.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Features\Configuration.feature.cs">
+      <DependentUpon>Configuration.feature</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowFeatureFiles Update="Features\Configuration.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
   </ItemGroup>
 
 </Project>
